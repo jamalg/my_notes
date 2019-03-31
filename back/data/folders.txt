@@ -1,0 +1,4 @@
+id	name	type	image_url	category_id
+1	Python is nice	Other	https://fossbytes.com/wp-content/uploads/2016/08/python-Programming-Language-Software.jpg	1
+2	React is nice	Documentation	https://blog.zingchart.com/content/images/2016/06/react-1.png	2
+3	Redux is nice	Documentation	https://raw.githubusercontent.com/reactjs/redux/master/logo/logo-title-dark.png	2

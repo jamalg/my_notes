@@ -1,0 +1,6 @@
+{
+    "title": "Learning React",
+    "folder_id": 2,
+    "tags": ["javascript", "react"],
+    "body": "\n  # [React is nice](https://reactjs.org)\n  # Generalities\n  - Enjoy React ```javascript\n  import React from 'react'\n  const jsx = <h1> Salam ! HTML in Javascript !</h1>\n  ```"
+}

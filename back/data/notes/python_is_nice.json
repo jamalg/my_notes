@@ -1,0 +1,6 @@
+{
+    "title": "Learning Python",
+    "folder_id": 1,
+    "tags": ["python", "python3"],
+    "body": "\n  # [Python is nice](https://www.python.org)\n  # Generalities\n  - Enjoy Python ```python\n  a, b = 123, 123\n  a is b # ??\n  ```"
+}

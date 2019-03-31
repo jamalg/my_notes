@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  nginx:
+    build:
+      context: ./back/docker/nginx
+      dockerfile: Dockerfile-dev
+    ports:
+      - 80:80
+    depends_on:
+      - back
+    restart: always
+
+  back:
+    env_file: .env
+    image: back
+    build:
+      context: ./back
+      dockerfile: docker/back/Dockerfile-dev
+    command: "poetry run flask run --host=0.0.0.0 --port ${APP_PORT}"
+    volumes:
+      - "./back:/home/app/back"
+    ports:
+      - 5000:5000
+    # Read https://docs.docker.com/compose/startup-order/
+    depends_on:
+      - db
+
+  db:
+    env_file: .env
+    image: postgres:10.6-alpine

@@ -1,0 +1,6 @@
+{
+    "title": "Learning Redux",
+    "folder_id": 3,
+    "tags": ["javascript", "redux"],
+    "body": "\n  # [Redux is nice](https://redux.js.org)\n  # Generalities\n  - Enjoy Redux ```javascript\n  import { configureStore } from 'redux'\n  import * as rootReducer from './reducers'\n  const store = configureStore(rootReducer)\n  ```"
+}
