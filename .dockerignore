@@ -1,6 +1,0 @@
-.vscode/
-.env
-.gitignore
-Makefile
-README.md
-docker-compose.yml

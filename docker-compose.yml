@@ -26,6 +26,18 @@ services:
     depends_on:
       - db
 
+  front:
+    env_file: .env
+    build:
+      context: ./front
+      dockerfile: docker/Dockerfile-dev
+    ports:
+      - 3000:3000
+    volumes:
+      - "./front:/usr/src/app"
+      - "/usr/src/app/node_modules"
+
+
   db:
     env_file: .env
     image: postgres:10.6-alpine
