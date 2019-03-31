@@ -102,3 +102,34 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Personal
+back/personal
+
+# Visual Studio
+.vscode/
+
+# MAC OS
+.DS_Store
+
+# dependencies
+front/node_modules
+front/.pnp
+front/.pnp.js
+
+# testing
+front/coverage
+
+# production
+front/build
+
+# misc
+front/.DS_Store
+front/.env.local
+front/.env.development.local
+front/.env.test.local
+front/.env.production.local
+
+front/npm-debug.log*
+front/yarn-debug.log*
+front/yarn-error.log*

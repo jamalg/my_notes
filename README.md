@@ -1,2 +1,1 @@
-# my_notes
-Python/ReactJS Notes viewing app
+# My Notes: Python/ReactJS Note sharing app
