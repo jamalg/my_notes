@@ -7,8 +7,6 @@ services:
       dockerfile: Dockerfile-dev
     ports:
       - 80:80
-    depends_on:
-      - back
     restart: always
 
   back:
@@ -25,6 +23,7 @@ services:
     # Read https://docs.docker.com/compose/startup-order/
     depends_on:
       - db
+      - nginx
 
   front:
     env_file: .env
@@ -36,6 +35,8 @@ services:
     volumes:
       - "./front:/usr/src/app"
       - "/usr/src/app/node_modules"
+    depends_on:
+      - nginx
 
 
   db:

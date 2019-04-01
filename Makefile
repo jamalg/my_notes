@@ -19,7 +19,7 @@ ipy:
 	docker-compose exec back poetry run ipython
 
 up:
-	docker-compose up
+	docker-compose up back front
 
 down:
 	docker-compose down
