@@ -1,7 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux'
+
+import * as async from './redux/actions/async'
+
 import './App.css';
 
-class App extends Component {
+class App extends React.Component {
+  componentDidMount() {
+    // Testing data fetch and redux flow
+    this.props.dispatch(async.fetchAllCategories())
+    this.props.dispatch(async.fetchFolder(1))
+    this.props.dispatch(async.fetchNote(1))
+  }
+
   render() {
     return (
       <div style={{margin: "auto"}}>
@@ -11,4 +22,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null)(App);
