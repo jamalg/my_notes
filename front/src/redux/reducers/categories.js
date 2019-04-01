@@ -8,8 +8,10 @@ export default function categories(state=fromJS({}), action) {
         case defs.ALL_CATEGORIES_FETCH_SUCCESS:
             return state.set("frontStatus", defs.STATUS.SUCCESS)
         case defs.ALL_CATEGORIES_FETCH_FAILED:
-            // More should probably be done here
-            return state.set("frontStatus", defs.STATUS.FAILED)
+            return state.withMutations(s =>
+                s.set("frontStatus", defs.STATUS.FAILED)
+                 .set("error", action.payload.error)
+            )
         case defs.ADD_ENTITIES:
             return state.merge(fromJS(action.payload.entities.categories))
         default:

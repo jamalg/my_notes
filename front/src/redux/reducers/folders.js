@@ -8,7 +8,10 @@ export default function folders(state=fromJS({}), action) {
         case defs.FOLDER_FETCH_SUCCESS:
             return state.setIn([action.payload.folderId.toString(), "frontStatus"], defs.STATUS.SUCCESS)
         case defs.FOLDER_FETCH_FAILED:
-            return state.setIn([action.payload.folderId.toString(), "frontStatus"], defs.STATUS.FAILED)
+            return state.withMutations(s =>
+                s.setIn([action.payload.folderId.toString(), "frontStatus"], defs.STATUS.FAILED)
+                 .setIn([action.payload.folderId.toString(), "error"], action.payload.error)
+            )
         case defs.ADD_ENTITIES:
             return state.mergeDeep(fromJS(action.payload.entities.folders))
         default:

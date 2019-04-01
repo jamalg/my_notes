@@ -8,7 +8,10 @@ export default function notes(state=fromJS({}), action) {
         case defs.NOTE_FETCH_SUCCESS:
             return state.setIn([action.payload.noteId.toString(), "frontStatus"], defs.STATUS.SUCCESS)
         case defs.NOTE_FETCH_FAILED:
-            return state.setIn([action.payload.noteId.toString(), "frontStatus"], defs.STATUS.FAILED)
+            return state.withMutations(s =>
+                s.setIn([action.payload.noteId.toString(), "frontStatus"], defs.STATUS.FAILED)
+                .setIn([action.payload.noteId.toString(), "error"], action.payload.error)
+            )
         case defs.ADD_ENTITIES:
             return state.mergeDeep(fromJS(action.payload.entities.notes))
         default:

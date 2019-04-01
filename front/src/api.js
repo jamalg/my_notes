@@ -2,17 +2,21 @@ import fetch from 'cross-fetch'
 
 import { toCamelCaseObject } from './utils'
 
+const applicationJSON = "application/json"
 const backApi = process.env.REACT_APP_API_URL
 
 const fetchBackApi = (endpoint) => {
     return fetch(`${backApi}/${endpoint}`)
     .then(response => {
         if (response.status !== 200) {
-            return response.json()
-            .then(json => {
-                const error = json || { message: response.statusText}
-                throw toCamelCaseObject(error)
-            })
+            if (response.headers.get("content-type") === applicationJSON) {
+                return response.json()
+                .then(json => {
+                    throw toCamelCaseObject(json)
+                })
+            }
+            const error = {message: response.statusText}
+            throw error
         } else {
             return response.json()
             .then(json => toCamelCaseObject(json))
