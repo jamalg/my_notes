@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 import './folders.css'
 
 
@@ -23,7 +25,7 @@ export const Folder = ({data: {type, name, imageUrl, notes}}) => (
             <h4 className="card-title">{name}</h4>
             <p className="card-text"><TypeBadge type={type}/></p>
             <ol className="folder-notes">
-                {notes.map((note) => <li key={note.id}><a href="#">{note.title}</a></li>)}
+                {notes.map((note) => <li key={note.id}><Link to={`/notes/${note.id}`}>{note.title}</Link></li>)}
             </ol>
         </div>
     </div>
