@@ -2,6 +2,7 @@ import 'babel-polyfill'
 
 import React from 'react'
 import ReactDom from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { fromJS } from 'immutable'
 
@@ -24,7 +25,9 @@ const store = configureStore(initialState)
 
 ReactDom.render(
     <Provider store={store}>
-        <App/>
+        <Router>
+            <App/>
+        </Router>
     </Provider>,
     document.getElementById("root")
 )
