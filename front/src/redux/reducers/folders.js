@@ -13,7 +13,7 @@ export default function folders(state=fromJS({}), action) {
                  .setIn([action.payload.folderId.toString(), "error"], action.payload.error)
             )
         case defs.ADD_ENTITIES:
-            return state.mergeDeep(fromJS(action.payload.entities.folders))
+            return state.mergeWith((o,n) => o.merge(n) ,fromJS(action.payload.entities.folders))
         default:
             return state
     }
