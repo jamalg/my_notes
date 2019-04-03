@@ -11,14 +11,16 @@ export function fetchAllCategories() {
         api.fetchAllCategories()
         .then(
             (categoriesData) => {
-                dispatch(sync.allCategoriesFetchSuccess(categoriesData))
                 const data = normalize(categoriesData, [ schemas.category ])
+
                 dispatch(sync.addEntities(data.entities))
+                dispatch(sync.allCategoriesFetchSuccess())
             },
             (error) => dispatch(sync.allCategoriesFetchFailed(error.message))
         )
+        }
     }
-}
+
 
 export function fetchFolder(folderId) {
     return (dispatch) => {
@@ -26,14 +28,15 @@ export function fetchFolder(folderId) {
         api.fetchFolder(folderId)
         .then(
             (folderData) => {
-                dispatch(sync.folderFetchSuccess(folderId, folderData))
                 const data = normalize(folderData, schemas.folder )
+
                 dispatch(sync.addEntities(data.entities))
+                dispatch(sync.folderFetchSuccess(folderId))
             },
             (error) => dispatch(sync.folderFetchFailed(folderId, error.message))
         )
+        }
     }
-}
 
 export function fetchNote(noteId) {
     return (dispatch) => {
@@ -41,9 +44,10 @@ export function fetchNote(noteId) {
         api.fetchNote(noteId)
         .then(
             (noteData) => {
-                dispatch(sync.noteFetchSuccess(noteId, noteData))
                 const data = normalize(noteData, schemas.note )
+
                 dispatch(sync.addEntities(data.entities))
+                dispatch(sync.noteFetchSuccess(noteId))
             },
             (error) => dispatch(sync.noteFetchFailed(noteId, error.message))
         )

@@ -15,6 +15,7 @@ if (process.env.REACT_APP_ENVIRONMENT && process.env.REACT_APP_ENVIRONMENT !== "
 }
 
 const initialState = fromJS({
+    allCategories: {},
     categories: {},
     folders: {},
     notes: {},
