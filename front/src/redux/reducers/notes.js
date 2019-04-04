@@ -13,7 +13,7 @@ export default function notes(state=fromJS({}), action) {
                 .setIn([action.payload.noteId.toString(), "error"], action.payload.error)
             )
         case defs.ADD_ENTITIES:
-            return state.mergeDeep(fromJS(action.payload.entities.notes))
+            return state.mergeWith((o,n) => o.merge(n) ,fromJS(action.payload.entities.notes))
         default:
             return state
     }
