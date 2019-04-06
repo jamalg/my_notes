@@ -4,7 +4,7 @@ import { Folder } from './folders'
 import * as defs from '../defs'
 import './categories.css'
 
-const CategorieRequesting = () => (
+const CategoriesRequesting = () => (
     <div className="categories-requesting-wrapper m-auto">
         <div className="row">
             <p className="col lead text-center">
@@ -112,7 +112,7 @@ export default class CategoriesView extends React.Component {
         const status = this.props.status
         switch(status) {
             case defs.STATUS.REQUESTING:
-                return <CategorieRequesting />
+                return <CategoriesRequesting />
             case defs.STATUS.SUCCESS:
                 return <CategoriesSuccess categories={this.props.categories}/>
             case defs.STATUS.FAILED:
