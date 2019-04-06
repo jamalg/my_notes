@@ -12,6 +12,8 @@ export default function notes(state=fromJS({}), action) {
                 s.setIn([action.payload.noteId.toString(), "frontStatus"], defs.STATUS.FAILED)
                 .setIn([action.payload.noteId.toString(), "error"], action.payload.error)
             )
+        case defs.REMOVE_NOTE_BODY:
+            return state.deleteIn([action.payload.noteId.toString(), "body"])
         case defs.ADD_ENTITIES:
             return state.mergeWith((o,n) => o.merge(n) ,fromJS(action.payload.entities.notes))
         default:

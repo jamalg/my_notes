@@ -15,6 +15,7 @@ export const folderFetchFailed = utils.makeCreators(defs.FOLDER_FETCH_FAILED, "f
 export const noteFetchRequested = utils.makeCreators(defs.NOTE_FETCH_REQUESTED, "noteId")
 export const noteFetchSuccess = utils.makeCreators(defs.NOTE_FETCH_SUCCESS, "noteId")
 export const noteFetchFailed = utils.makeCreators(defs.NOTE_FETCH_FAILED, "noteId", "error")
+export const removeNoteBody = utils.makeCreators(defs.REMOVE_NOTE_BODY, "noteId")
 
 // -> GENERIC ADD ENTITIES
 export const addEntities = utils.makeCreators(defs.ADD_ENTITIES, "entities")
