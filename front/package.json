@@ -5,6 +5,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "cross-fetch": "^3.0.1",
+    "highlight.js": "^9.15.6",
     "immutable": "^4.0.0-rc.12",
     "normalizr": "^3.3.0",
     "react": "^16.8.0",
@@ -16,6 +17,7 @@
     "redux": "^4.0.1",
     "redux-immutable": "^4.0.0",
     "redux-thunk": "^2.3.0",
+    "remarkable": "^1.7.1",
     "reselect": "^4.0.0",
     "with-immutable-props-to-js": "^1.1.0"
   },
