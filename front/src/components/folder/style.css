@@ -1,0 +1,38 @@
+.folder-wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.folder-name {
+    margin: 20px 0;
+    color: var(--notes-yellow);
+}
+
+.folder-note-card {
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 1px var(--dark);
+    transform: scale(1);
+    transition: transform 300ms ease;
+}
+
+a:hover .folder-note-card {
+    transform: scale(1.01);
+}
+
+.folder-notes a:hover {
+    text-decoration: none;
+}
+
+.folder-note-card-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--notes-red);
+}
+
+.folder-note-toc {
+    max-height: 15em;
+    overflow: auto;
+    margin: 10px 0;
+}
