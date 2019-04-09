@@ -10,5 +10,6 @@ class CategorySchema(BaseSchema):
 
     id = fields.Integer()
     name = fields.String(required=True, allow_none=False)
+    image_url = fields.URL(required=False, allow_none=True)
 
     folders = fields.Nested(FolderSchema, many=True, dump_only=True)

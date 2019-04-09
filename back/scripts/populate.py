@@ -17,7 +17,7 @@ DELIMITER = "\t"
 DATAPATH = "data"
 # --> Categories
 CATEGORIES_PATH = "{}/categories.txt".format(DATAPATH)
-CATEGORIES_EXPECTED_FIELDS = ["id", "name"]
+CATEGORIES_EXPECTED_FIELDS = ["id", "name", "image_url"]
 # --> Folders
 FOLDERS_PATH = "{}/folders.txt".format(DATAPATH)
 FOLDERS_EXPECTED_FIELDS = ["id", "name", "type", "image_url", "category_id"]

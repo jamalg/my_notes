@@ -47,6 +47,7 @@ tbody tr:nth-of-type(even) {
     padding: 10px;
     max-width: 380px;
     max-height: 400px;
+    min-width: 250px;
     overflow: auto;
 }
 
