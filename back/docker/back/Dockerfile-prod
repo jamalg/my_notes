@@ -10,16 +10,13 @@ RUN addgroup --system $APP_GROUP && adduser --system --ingroup $APP_GROUP $APP_U
 
 # Set back folder
 ENV APP_FOLDER=$HOME/back
-ENV UTILS_FOLDER=$HOME/oneouma
 RUN mkdir $APP_FOLDER
-RUN mkdir $UTILS_FOLDER
 WORKDIR $APP_FOLDER
 
-COPY ./back/poetry.lock ./back/pyproject.toml $APP_FOLDER/
+COPY ./poetry.lock ./pyproject.toml $APP_FOLDER/
 RUN poetry install --no-dev
 
-COPY ./back/ $APP_FOLDER/
-COPY ./oneouma/ $UTILS_FOLDER/
+COPY . $APP_FOLDER/
 
 RUN chown -R $APP_GROUP:$APP_USER $APP_FOLDER/
 USER $APP_USER
