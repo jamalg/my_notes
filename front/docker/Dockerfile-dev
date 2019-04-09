@@ -1,5 +1,7 @@
 FROM node:11.6.0-alpine
 
+RUN apk add git
+
 WORKDIR /usr/src/app
 
 ENV PATH /usr/src/app/node_modules/.bin:$PATH

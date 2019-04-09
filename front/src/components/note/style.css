@@ -1,0 +1,120 @@
+code {
+    display: inline-block;
+    background: #F5f7fa;
+    color: black;
+    border-radius: 3px;
+    padding: 0 0.25em;
+}
+
+pre {
+    border-radius: 5px;
+    box-shadow: 0 0 2px grey;
+}
+
+table {
+    padding: 10px;
+    margin: 10px auto;
+    box-shadow: 0 0 2px grey;
+}
+
+td, th {
+    padding: 0 20px 0 5px;
+}
+
+tbody tr:nth-of-type(even) {
+    background: #F5f7fa;
+}
+
+.note-header {
+    padding-left: 1em;
+}
+
+.note-folder-main-link a {
+    font-size: 2em;
+    color: var(--yellow);
+    font-weight: 200;
+}
+
+.note-folder-main-link a:hover {
+    text-decoration: none;
+}
+
+.note-content {
+    margin: 0 auto;
+    max-width: 90%;
+}
+.note-toc {
+    padding: 10px;
+    max-width: 380px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.note-toc::before {
+    content: "In this note:";
+    font-size: 1.2em;
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
+.note-body h1 a::after, .note-body h2 a::after, .note-body h3 a::after, .note-body h4 a::after, .note-body h5 a::after, .note-body h6 a::after {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f35d";
+    position: relative;
+    font-size: 0.5em;
+    bottom: 0.25em;
+    left: 0.25em;
+}
+
+.note-body h1 a, .note-body h2 a, .note-body h3 a, .note-body h4 a, .note-body h5 a, .note-body h6 a {
+    color: inherit;
+}
+
+.note-body h1 , .note-body h2 , .note-body h3 , .note-body h4 , .note-body h5 , .note-body h6 {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+header h1{
+    font-size: 3.5em;
+    margin-bottom: 1em;
+}
+
+.note-body h1 {
+    font-size: 3em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.note-body h2 {
+    font-size: 2.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.note-body h3 {
+    font-size: 1.5em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+
+header h1 {
+    color: var(--notes-red);
+}
+
+.note-body h1 {
+    color: var(--notes-green);
+}
+
+/* .note-body h2 {
+    color: var(--notes-green);
+} */

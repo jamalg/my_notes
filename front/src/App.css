@@ -1,4 +1,17 @@
-#root {
-    display: flex;
-    flex-direction: column;
+.app-body {
+    --light-grey: #cdd5dd;
+    --medium-grey: #a6b4c2;
+    --dark: #343a40;
+    --notes-yellow: rgba(255, 209, 102, 1);
+    --notes-red: #FF6B6B;
+    --notes-green: #06D6A0;
+    background-color: lavenderblush;
+    color: var(--dark);
+    min-height: 100vh;
+}
+
+.app-wrapper {
+    min-height: 100vh;
+    max-width: 960px;
+    background-color: white;
 }

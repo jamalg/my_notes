@@ -1,0 +1,27 @@
+.note-toc-heading {
+    padding-left: 3.5em;
+    font-weight: 250;
+}
+
+.note-toc-heading[data-toc-level="1"] {
+    padding-left: 0;
+    font-weight: 700;
+}
+
+.note-toc-heading[data-toc-level="2"] {
+    padding-left: 1em;
+    font-weight: 450;
+}
+
+.note-toc-heading[data-toc-level="3"] {
+    padding-left: 2em;
+    font-weight: 250;
+}
+
+.note-toc-heading[data-toc-level="4"] {
+    padding-left: 2.5em;
+}
+
+.note-toc-heading[data-toc-level="5"] {
+    padding-left: 3em;
+}

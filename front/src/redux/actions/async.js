@@ -1,4 +1,5 @@
 import { normalize } from 'normalizr'
+import toc from 'markdown-toc'
 
 import * as schemas from '../schemas'
 import * as sync from './sync'
@@ -19,8 +20,7 @@ export function fetchAllCategories() {
             (error) => dispatch(sync.allCategoriesFetchFailed(error.message))
         )
         }
-    }
-
+}
 
 export function fetchFolder(folderId) {
     return (dispatch) => {
@@ -36,7 +36,7 @@ export function fetchFolder(folderId) {
             (error) => dispatch(sync.folderFetchFailed(folderId, error.message))
         )
         }
-    }
+}
 
 export function fetchNote(noteId) {
     return (dispatch) => {
@@ -51,5 +51,21 @@ export function fetchNote(noteId) {
             },
             (error) => dispatch(sync.noteFetchFailed(noteId, error.message))
         )
+    }
+}
+
+export function generateNoteTOC(noteId) {
+    return (dispatch) => {
+        dispatch(sync.generateNoteTOCRequested(noteId))
+        api.fetchNote(noteId)
+        .then(
+            (noteData) => {
+                const noteBody = noteData.body
+                const noteTOC = toc(noteBody).json
+                dispatch(sync.generateNoteTOCSuccess(noteId, noteTOC))
+            },
+            (error) => dispatch(sync.generateNoteTOCFailed(noteId, error.message))
+        )
+
     }
 }
