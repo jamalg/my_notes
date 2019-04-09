@@ -1,0 +1,1 @@
+export { NoteTOC } from './component'
