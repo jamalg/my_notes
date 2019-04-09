@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  nginx:
+    build:
+      context: ./back/docker/nginx
+      dockerfile: Dockerfile-prod
+    ports:
+      - 80:80
+    restart: always
+    depends_on:
+      - back
+      - front
+
+  back:
+    env_file: prod.env
+    image: back
+    build:
+      context: ./back
+      dockerfile: docker/back/Dockerfile-prod
+    # Read https://docs.docker.com/compose/startup-order/
+    depends_on:
+      - db
+
+  front:
+    env_file: prod.env
+    build:
+      context: ./front
+      dockerfile: docker/Dockerfile-prod
+      args:
+        - REACT_APP_ENVIRONMENT=production
+        - REACT_APP_API_URL=http://3.80.159.150/api
+
+  db:
+    env_file: .env
+    image: postgres:10.6-alpine
