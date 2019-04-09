@@ -1,17 +1,25 @@
 import React from 'react';
 
-import { Switch, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
-import CategoriesView from './containers/categories'
-import NoteView from './containers/note'
+import Home from './containers/home'
+import Category from './containers/category'
+import Folder from './containers/folder'
+import Note from './containers/note'
+import Header from './containers/header'
 import './App.css';
 
 
 export default function() {
   return (
-      <Switch>
-        <Route path="/notes/:noteId" component={NoteView}/>
-        <Route path="/" component={CategoriesView}/>
-      </Switch>
+    <div className="app-body w-100">
+      <div className="app-wrapper container d-flex flex-column">
+          <Route path="/" component={Header} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/categories/:categoryId" component={Category} />
+          <Route exact path="/categories/:categoryId/folders/:folderId" component={Folder} />
+          <Route exact path="/categories/:categoryId/folders/:folderId/notes/:noteId" component={Note} />
+      </div>
+    </div>
   )
 }
