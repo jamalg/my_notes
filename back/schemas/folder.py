@@ -14,4 +14,4 @@ class FolderSchema(BaseSchema):
     type = EnumField(FolderType, required=True)
     image_url = fields.URL(required=False, allow_none=True)
     category_id = fields.Integer(required=True)
-    notes = fields.Nested(NoteSchema, many=True, dump_only=True, only=("id", "title", "tags"))
+    notes = fields.Nested(NoteSchema, many=True, dump_only=True, only=("id", "title", "tags", "folder_id"))
