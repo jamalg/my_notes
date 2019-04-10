@@ -6,8 +6,6 @@
 .category-card {
     height: 350px;
     margin: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 1px var(--dark);
     transform: scale(1);
     transition: transform 300ms ease;
 }
