@@ -1,11 +1,11 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-import toc from 'markdown-toc'
 import Remarkable from 'remarkable'
 import hljs from 'highlight.js';
 
 import { NoteTOC } from '../noteTOC'
+import { withHeadingIds } from '../../utils'
 
 import './style.css'
 import 'highlight.js/styles/solarized-dark.css';
@@ -27,6 +27,7 @@ const md = new Remarkable({
     return '';
   }
 })
+md.use(withHeadingIds)
 
 export const Note = ({ note: { body, title, folderId, toc }, categoryId, folderName }) => (
     <div className="note-wrapper">

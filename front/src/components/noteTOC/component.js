@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { HashLink as Link } from 'react-router-hash-link'
 
 import './style.css'
 
@@ -11,7 +11,7 @@ export const NoteTOC = ({toc, baseUrl}) => (
         {toc.map(heading => {
             return (
                 <div className="note-toc-heading" data-toc-level={heading.lvl}>
-                    <Link to={`${baseUrl}#${heading.slug}`}>
+                    <Link scroll={el => el.scrollIntoView({ behavior: 'smooth', block: 'start' })} to={`${baseUrl}#${heading.slug}`}>
                         {removeEmbbededLinks(heading.content)}
                     </Link>
                 </div>)
