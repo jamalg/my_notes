@@ -34,11 +34,13 @@ services:
       - 3000:3000
     volumes:
       - "./front:/usr/src/app"
-      - "/usr/src/app/node_modules"
+      - "container_node_modules:/usr/src/app/node_modules"
     depends_on:
       - nginx
-
 
   db:
     env_file: .env
     image: postgres:10.6-alpine
+
+volumes:
+  container_node_modules:
