@@ -1,6 +1,7 @@
 # My Notes: Notes sharing app
 
 Flask/Reactjs dockerized app to serve markdown notes. I built this app as a side project/demo to practice React stack.
+You can see it live on [personal site](http://notes.jgourinda.com/).
 
 ## Generalities
 ### Python backend:
