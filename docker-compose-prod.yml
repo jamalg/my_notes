@@ -28,8 +28,8 @@ services:
       context: ./front
       dockerfile: docker/Dockerfile-prod
       args:
-        - REACT_APP_ENVIRONMENT=production
-        - REACT_APP_API_URL=http://3.80.159.150/api
+        - REACT_APP_ENVIRONMENT=local
+        - REACT_APP_API_URL=http://production.host/api
 
   db:
     env_file: .env

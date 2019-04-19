@@ -9,6 +9,7 @@ Flask/Reactjs dockerized app to serve markdown notes. I built this app as a side
 - **Alembic** to handle migration
 - **Marshamallow** for serialization/deserialization
 - Some patterns:
+    - As recommended by the *Twelve Factor App* config is stored in environment variables. The conlig class in `back.utils.config_class.config::BaseConfig` leverages the power of Python descriptors to make declaring and managing configuration easier. See `back.config.py`
     - Minimal checkout pattern for database operation : Try to open the connection at last moment and close it as soon as possible. See usage of `utils.sqlalchemy.helpers::session_manager` in `models.helper::add_one`
     - The scope of the session is tied to the request cycle. The usage of `scopefunc=_app_ctx_stack.__ident_func__` in `models.db::session` and the callback attached to `app.teardown_request` in `back.models.__init__::init_app` makes the API sustain a much larger charge load. You get all these benefits and more by using **FlaskSQLALchemy** but sometimes it's also good to be aware of what is happening
     - When possible functions and helpers are written to promote intention and make reading application code easier. The philosophy is that application code in API routes or scripts should do `helper.add_user(user_data)` rather than `helper.add_one(user_data, UserSchema)`
@@ -54,3 +55,5 @@ make upgrade # Create model tables
 make load-notes # Load data in db
 ```
 Check that the back API is working well at `http://localhost/api/categories`. Front should be served at `http://localhost`.
+
+**Note that for production build and deploy** you need to update the value of `REACT_APP_API_URL` directly in `docker-compose-prod.yml` as it's needed at built time.
